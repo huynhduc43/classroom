@@ -24,6 +24,12 @@ const StyledInfoGrid = styled(Grid)`
   border-radius: 4px 4px 0 0;
 `
 
+const MoreVertIconButton = styled(IconButton)`
+  &:hover {
+    background-color: ${blue[800]};
+  }
+`
+
 const ClassList = ({ newClassId }) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -103,7 +109,7 @@ const ClassList = ({ newClassId }) => {
                   </Grid>
                 </Grid>
                 <Grid item xs={2} textAlign="right">
-                  <IconButton
+                  <MoreVertIconButton
                     aria-label="menu of class setting"
                     aria-controls="menu-class-setting"
                     aria-haspopup="true"
@@ -111,7 +117,7 @@ const ClassList = ({ newClassId }) => {
                     color="inherit"
                   >
                     <MoreVertIcon />
-                  </IconButton>
+                  </MoreVertIconButton>
                 </Grid>
                 <Grid item xs={12} textAlign="left" mt={1}>
                   {item.studentTotal}

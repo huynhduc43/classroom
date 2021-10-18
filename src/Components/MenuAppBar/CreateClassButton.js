@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import AddIcon from '@mui/icons-material/Add';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Typography } from '@mui/material';
-import { red, green } from '@mui/material/colors';
+import { red, green, grey } from '@mui/material/colors';
 import { styled } from '@mui/system';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Box } from '@mui/system';
@@ -19,6 +19,12 @@ const CancelButton = styled(Button)`
     background-color: ${red[50]};
   }
 `;
+
+const AddIconButton = styled(IconButton)`
+  &:hover {
+    background-color: ${grey[800]};
+  }
+`
 
 export default function CreateClassButton({ handleRender }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -61,7 +67,7 @@ export default function CreateClassButton({ handleRender }) {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3000/classes', {
+      const response = await axios.post('https://ptudwnc-classroom-api.herokuapp.com/classes', {
         className: data.className,
         section: data.section,
         subject: data.subject,
@@ -91,7 +97,7 @@ export default function CreateClassButton({ handleRender }) {
   }, [formState, reset, error]);
 
   return (<>
-    <IconButton
+    <AddIconButton
       size="large"
       aria-label="menu of create class"
       aria-controls="menu-create-class"
@@ -100,7 +106,7 @@ export default function CreateClassButton({ handleRender }) {
       color="inherit"
     >
       <AddIcon />
-    </IconButton>
+    </AddIconButton>
     <Menu
       id="menu-create-class"
       anchorEl={anchorEl}

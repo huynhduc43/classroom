@@ -5,28 +5,36 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { grey } from '@mui/material/colors';
+import { styled, createTheme } from '@mui/system';
 
 import CreateClassButton from './CreateClassButton';
-import { styled } from '@mui/system';
+
+const theme = createTheme();
 
 const StyledAppBar = styled(AppBar)`
   background-color: ${grey[900]};
   color: ${grey[100]};
 `
 
+const MenuIconButton = styled(IconButton)`
+  margin-right: ${theme.spacing(2)};
+  &:hover {
+    background-color: ${grey[800]};
+  }
+`
+
 export default function MenuAppBar({ handleRender }) {
   return (
     <StyledAppBar elevation={0} position="static">
       <Toolbar>
-        <IconButton
+        <MenuIconButton
           size="large"
           edge="start"
           color="inherit"
           aria-label="menu"
-          sx={{ mr: 2 }}
         >
           <MenuIcon />
-        </IconButton>
+        </MenuIconButton>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} textAlign="left">
           Classroom
         </Typography>
