@@ -67,7 +67,7 @@ export default function CreateClassButton({ handleRender }) {
     setLoading(true);
 
     try {
-      const response = await axios.post('https://ptudwnc-classroom-api.herokuapp.com/classes', {
+      const response = await axios.post(`${process.env.REACT_APP_HOST}classes`, {
         className: data.className,
         section: data.section,
         subject: data.subject,

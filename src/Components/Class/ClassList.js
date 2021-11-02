@@ -47,7 +47,7 @@ const ClassList = ({ newClassId }) => {
   useEffect(() => {
     const getClassList = async () => {
       try {
-        const response = await axios.get('https://ptudwnc-classroom-api.herokuapp.com/classes');
+        const response = await axios.get(`${process.env.REACT_APP_HOST}classes`);
 
         if (response) { 
           setIsLoaded(true);
@@ -143,7 +143,7 @@ const ClassList = ({ newClassId }) => {
               </Grid>
             </Paper>
           </Grid>
-        )) : <Typography variant="h4" color="error" align="center" flexGrow={1}>Class not found.</Typography>}
+        )) : <Typography variant="h4" color="error" align="center" flexGrow={1}>Class not found!</Typography>}
 
         <Menu
           id="menu-class-setting"
